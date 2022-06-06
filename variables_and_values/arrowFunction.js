@@ -112,20 +112,44 @@
 // console.log(reverse(reverse("Javascript")));
 
 //Assignment Api
-let fetch = require('node-fetch');
-fetch('https://jsonplaceholder.typicode.com/photos')
-   .then(response => response.json())
-// getApi = () =>{
-//   fetch('https://jsonplaceholder.typicode.com/photos')
-//   .then(response => response.json())
-//   .then(response => response.filter(({albumId})=>{
-//     return albumId === 1;
-//   }))
-//   .then(result => console.log(result))
-// }
-// getApi();
+import fetch from 'node-fetch';
+  // Call Api ข้อ 1
+  // fetch('https://jsonplaceholder.typicode.com/photos')
+  // .then(response => response.json())
+  // .then(response => response.filter(({albumId})=>{
+  //   return albumId === 1;
+  // }))
+  // .then(result => console.log(result))
 
-// const fetch = require('node-fetch');
-// fetch('https://google.com/%27)
-//     .then(res => res.text())
-//     .then(text => console.log(text));
+
+  // Call Api ข้อ 2
+  // fetch('https://jsonplaceholder.typicode.com/photos')
+  // .then(response => response.json())
+  // .then(response => response.filter(({albumId})=>{
+  //   return albumId === 1;
+  // }))
+  // .then(response => response.map(({url})=>{
+  //   return url
+  // }))
+  // .then(result => console.log(result.length));
+
+
+  // Call Api ข้อ 3
+  fetch('https://jsonplaceholder.typicode.com/posts') 
+  .then(response => response.json())
+  .then(response => response.filter(({id})=>{
+    return id < 10;
+  }))
+  .then(response => response.map(({userId})=>{
+    fetch(`https://jsonplaceholder.typicode.com/users/${userId}`) 
+    .then(response => response.json())
+    // .then(response => response.map((res)=>{
+    //   console.log(res.name)
+    //   // return res.name
+    // }))
+    .then(result => console.log(result.name))
+  }))
+  // .then(response => response.map(({name})=>{
+  //   return name
+  // }))
+  // .then(result => console.log(result))

@@ -12,10 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "esm": "^3.2.25",
     "greeting": "^1.0.6",
     "node-fetch": "^3.2.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
-  }
+  },
+  "type": "module"
 }
