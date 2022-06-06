@@ -1,3 +1,4 @@
+
 // setName=()=>{
 //     console.log("Test Arrow Function");
 // }
@@ -27,72 +28,104 @@
     //  console.log(a,b,c);
     //console.log(result);
 
-//assignment arrow function ข้อ 1
+// assignment arrow function ข้อ 1
 // addMultiple = (...n) =>{
-//     let total=0;
 //     const arrNumber = [...n];
-//     arrNumber.map(function(element){
-//         total += element;
-//         return total
-//     });
-//     console.log(total);
+//     const result = arrNumber.reduce((sum,n) =>{
+//       return  sum+n;
+      
+//     },0);
+//     console.log(result)
+
 // }
-// addMultiple(1,2);
+// addMultiple(1,2,3);
 
-//assignment arrow function ข้อ 2
-const user = [
-    {
-      id: 1,
-      name: "Leanne Graham",
-      username: "Bret",
-      email: "Sincere@april.biz",
-      address: {
-        street: "Kulas Light",
-        suite: "Apt. 556",
-        city: "Gwenborough",
-        zipcode: "92998-3874",
-        geo: {
-          lat: "-37.3159",
-          lng: "81.1496",
-        },
-      },
-      phone: "1-770-736-8031 x56442",
-      website: "hildegard.org",
-      company: {
-        name: "Romaguera-Crona",
-        catchPhrase: "Multi-layered client-server neural-net",
-        bs: "harness real-time e-markets",
-      },
-    },
-    {
-      id: 2,
-      name: "Ervin Howell",
-      username: "Antonette",
-      email: "Shanna@melissa.tv",
-      address: {
-        street: "Victor Plains",
-        suite: "Suite 879",
-        city: "Wisokyburgh",
-        zipcode: "90566-7771",
-        geo: {
-          lat: "-43.9509",
-          lng: "-34.4618",
-        },
-      },
-      phone: "010-692-6593 x09125",
-      website: "anastasia.net",
-      company: {
-        name: "Deckow-Crist",
-        catchPhrase: "Proactive didactic contingency",
-        bs: "synergize scalable supply-chains",
-      },
-    },
-];
+// const user = [
+//     {
+//       id: 1,
+//       name: "Leanne Graham",
+//       username: "Bret",
+//       email: "Sincere@april.biz",
+//       address: {
+//         street: "Kulas Light",
+//         suite: "Apt. 556",
+//         city: "Gwenborough",
+//         zipcode: "92998-3874",
+//         geo: {
+//           lat: "-37.3159",
+//           lng: "81.1496",
+//         },
+//       },
+//       phone: "1-770-736-8031 x56442",
+//       website: "hildegard.org",
+//       company: {
+//         name: "Romaguera-Crona",
+//         catchPhrase: "Multi-layered client-server neural-net",
+//         bs: "harness real-time e-markets",
+//       },
+//     },
+//     {
+//       id: 2,
+//       name: "Ervin Howell",
+//       username: "Antonette",
+//       email: "Shanna@melissa.tv",
+//       address: {
+//         street: "Victor Plains",
+//         suite: "Suite 879",
+//         city: "Wisokyburgh",
+//         zipcode: "90566-7771",
+//         geo: {
+//           lat: "-43.9509",
+//           lng: "-34.4618",
+//         },
+//       },
+//       phone: "010-692-6593 x09125",
+//       website: "anastasia.net",
+//       company: {
+//         name: "Deckow-Crist",
+//         catchPhrase: "Proactive didactic contingency",
+//         bs: "synergize scalable supply-chains",
+//       },
+//     },
+// ];
   
-let arrName = [];
-const getName = user.map(function(element){
-    arrName.push(element.name);
-});
-console.log(arrName);
+//assignment arrow function ข้อ 2
+// const getName = user.map(({name})=>{
+//   return name;
+// })
+// console.log(getName)
+// getName(user);
+
+//Assignment ข้อ 3
+// const getGeo = user.map(({address})=>{
+//   geo = address?.geo;
+//   const {lat,lng} = geo;
+//   return `${lat}/${lng}` ;
+// })
+// console.log(getGeo)
 
 
+//Assignment ข้อ 4
+// const reverse = (string) => {
+//   return string.split("").reverse().join("");
+// }
+// console.log(reverse(reverse("Javascript")));
+
+//Assignment Api
+let fetch = require('node-fetch');
+fetch('https://jsonplaceholder.typicode.com/photos')
+   .then(response => response.json())
+// getApi = () =>{
+//   fetch('https://jsonplaceholder.typicode.com/photos')
+//   .then(response => response.json())
+//   .then(response => response.filter(({albumId})=>{
+//     return albumId === 1;
+//   }))
+//   .then(result => console.log(result))
+// }
+// getApi();
+
+// const fetch = require('node-fetch');
+// fetch('https://google.com/%27)
+//     .then(res => res.text())
+//     .then(text => console.log(text));
