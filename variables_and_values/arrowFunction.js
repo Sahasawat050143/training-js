@@ -135,15 +135,32 @@ import fetch from 'node-fetch';
 
 
   // Call Api ข้อ 3
-  fetch('https://jsonplaceholder.typicode.com/posts') 
-  .then(response => response.json())
-  .then(response => response.filter(({id})=>{
-    return id < 10;
-  }))
-  .then(response => response.map(({userId})=>{
-    return userId;
-  }))
-  .then(result => [...new Set(result)])
-  .then(result => fetch(`https://jsonplaceholder.typicode.com/users/${result}`))
-  .then(response => response.json())
-  .then(result => console.log(result.name))
+  // fetch('https://jsonplaceholder.typicode.com/posts') 
+  // .then(response => response.json())
+  // .then(response => response.filter(({id})=>{
+  //   return id < 10;
+  // }))
+  // .then(response => response.map(({userId})=>{
+  //   return userId;
+  // }))
+  // .then(result => [...new Set(result)])
+  // .then(result => fetch(`https://jsonplaceholder.typicode.com/users/${result}`))
+  // .then(response => response.json())
+  // .then(result => console.log(result.name))
+
+  //call Api axios
+  import axios from "axios";
+
+  axios.get('https://jsonplaceholder.typicode.com/comments')
+  .then(({data}) => {
+    data.filter(({postId})=>{
+        return postId == 1;
+    })
+  .then()
+    // .then(({data}) => console.log((data)))
+    // .then(({data})=>{
+    //   data.map(({postId})=>{
+    //     return postId
+    //   })
+    // })
+  });
