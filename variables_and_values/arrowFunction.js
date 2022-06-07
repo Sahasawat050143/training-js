@@ -151,16 +151,86 @@ import fetch from 'node-fetch';
   //call Api axios
   import axios from "axios";
 
-  axios.get('https://jsonplaceholder.typicode.com/comments')
-  .then(({data}) => {
-    data.filter(({postId})=>{
+  //PostId = 1
+  // axios.get('https://jsonplaceholder.typicode.com/comments')
+  // .then(({data}) => {
+  //   return data;
+  //   })
+  //   .then(res => res.filter(({postId})=>{
+  //     return postId == 1;
+  //   }))
+  //   .then(res => res.map(({postId})=>{
+  //     return postId
+  //   }))
+  //   .then(res => [...new Set(res)])
+  //   .then(res => axios.get(`https://jsonplaceholder.typicode.com/posts/${res}`))
+  //   .then(({data})=>{
+  //     return data
+  //   })
+  //   .then(({title})=>{
+  //     console.log(title)
+  //   })
+
+  //postId <= 5
+  //  axios.get('https://jsonplaceholder.typicode.com/comments')
+  //   .then(({data}) => {
+  //   return data;
+  //   })
+  //   .then(res => res.filter(({postId})=>{
+  //     return postId <= 5;
+  //   }))
+  //   .then(res => res.map(({postId})=>{
+  //     return postId
+  //   }))
+  //   .then(res => [...new Set(res)])
+  //   .then(res => axios.get(`https://jsonplaceholder.typicode.com/posts/${res}`))
+  //   .then(({title})=>{
+  //      console.log(title);
+  //   })
+
+
+  const getPostId = async () =>{
+    try{
+      const reqComment = axios.get('https://jsonplaceholder.typicode.com/comments').filter(({data})=>{
+        console.log(data);
         return postId == 1;
-    })
-  .then()
-    // .then(({data}) => console.log((data)))
-    // .then(({data})=>{
-    //   data.map(({postId})=>{
-    //     return postId
-    //   })
-    // })
-  });
+      }) ;
+      //console.log(reqComment)
+      // const condition = await reqComment.filter(({data})=>{
+      //   console.log(data);
+      //   return postId == 1;
+      // }) 
+      console.log(reqComment);
+      // const postId = await condition.map(({postId})=>{
+      //   return postId;
+      // })
+      // const group = await [...new Set(postId)];
+      // return getId(group);
+    }catch(err){
+      // console.error(error);
+    }
+  }
+
+  // const getId = async (postId) =>{
+  //   try{
+  //     const reqPosts = await axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+  //     console.log(({reqPosts}));
+  //   }catch(err){
+  //     console.err(err);
+  //   }
+  // }
+  getPostId();
+
+
+  // const getApi = async () => {
+  //   try{
+  //     const reqComment = axios.get('https://jsonplaceholder.typicode.com/comments');
+  //     const reqPosts = axios.get('https://jsonplaceholder.typicode.com/posts/');
+      
+  //     const getAllRes = await Promise.all([reqComment,reqPosts])
+  //     console.log('Res',getAllRes)
+  //   }catch(err){
+  //     console.log(err)
+  //   } 
+  // }
+  // getApi()
