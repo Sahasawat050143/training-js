@@ -141,15 +141,9 @@ import fetch from 'node-fetch';
     return id < 10;
   }))
   .then(response => response.map(({userId})=>{
-    fetch(`https://jsonplaceholder.typicode.com/users/${userId}`) 
-    .then(response => response.json())
-    // .then(response => response.map((res)=>{
-    //   console.log(res.name)
-    //   // return res.name
-    // }))
-    .then(result => console.log(result.name))
+    return userId;
   }))
-  // .then(response => response.map(({name})=>{
-  //   return name
-  // }))
-  // .then(result => console.log(result))
+  .then(result => [...new Set(result)])
+  .then(result => fetch(`https://jsonplaceholder.typicode.com/users/${result}`))
+  .then(response => response.json())
+  .then(result => console.log(result.name))
